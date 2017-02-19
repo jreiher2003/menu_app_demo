@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" type="image/ico" href="#" />
+</head>
+<body>
+  {% include "messages.html" %}
+  {% block content %}{% endblock %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+  <script type="text/javascript">
+  function checkForm(form) // Submit button clicked
+  {
+    setTimeout(function() {
+    form.submit.disabled = false;
+    form.submit.value = "Try again...";
+    },5000);
+    form.submit.disabled = true;
+    form.submit.value = "Please wait...";
+    return true;
+  }
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $.validate({
+      form: "#userForm",
+      modules: "security",
+      onModulesLoaded: function(){
+        var optionalConfig = {
+          width: "100%",
+          fontSize: "8pt",
+          padding: "4px",
+          bad: "Very bad",
+          weak: "Weak",
+          good: "Good",
+          strong: "Strong"
+        };
+        $("input[name='password']").displayPasswordStrength(optionalConfig);
+      }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Hello,
+
+Here is the password reset link you requested.
+
+{{ reset_link }}Click here to reset your password.
+
+If you are have a problem paste link into browser {{ reset_link }}

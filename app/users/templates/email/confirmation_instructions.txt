@@ -1,0 +1,5 @@
+Please confirm your email through the link below:
+
+{{ confirm_url }} Confirm my account
+If you are experiencing any problems copy and paste link into browser
+{{ confirm_url }}
